@@ -17,7 +17,7 @@ function App() {
           rel="noopener noreferrer"
         >
         </a>
-        <Button variant="contained">Hello World</Button>;
+        <Button variant="contained">ボタンだよ！</Button>;
       </header>
     </div>
   );
