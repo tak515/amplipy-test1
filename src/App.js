@@ -3,8 +3,9 @@ import './App.css';
 import Button from '@mui/material/Button';
 import Amplify from 'aws-amplify';
 import {Storage} from 'aws-amplify';
+import awsmobile from './aws-exports.jp'
 
-Amplify.configure('./aws-exports.jp');
+Amplify.configure(awsmobile);
 Storage.list('')
   .then(result => console.log(result))
   .catch(err => console.log(err));
