@@ -5,7 +5,9 @@ import Amplify from 'aws-amplify';
 import {Storage} from 'aws-amplify';
 
 Amplify.configure('./aws-exports.jp');
-const list1 = Storage.list(''); // for listing ALL files without prefix, pass '' instead
+Storage.list('')
+  .then(result => console.log(result))
+  .catch(err => console.log(err));
 
 
 function App() {
@@ -23,7 +25,7 @@ function App() {
           rel="noopener noreferrer"
         >
         </a>*/
-        list: {list1}
+        
         <Button variant="contained">ボタンだよ！</Button>
       </header>
     </div>
