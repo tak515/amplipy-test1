@@ -3,7 +3,7 @@ import './App.css';
 import Button from '@mui/material/Button';
 import Amplify from 'aws-amplify';
 import {Storage} from 'aws-amplify';
-import awsmobile from './aws-exports.jp'
+import awsmobile from './aws-exports.js'
 
 Amplify.configure(awsmobile);
 Storage.list('')
