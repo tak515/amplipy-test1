@@ -1,24 +1,42 @@
-import logo from './logo.svg';
+//import logo from './logo.svg';
+import React, {useEffect} from 'react';
 import './App.css';
 import Button from '@mui/material/Button';
 import Amplify from 'aws-amplify';
-import {Storage} from 'aws-amplify';
-import awsmobile from './aws-exports.js'
+import {Auth} from 'aws-amplify';
+import { withAuthenticator } from 'aws-amplify-react'; // or 'aws-amplify-react-native';
 
-Amplify.configure(awsmobile);
-Storage.list('')
-  .then(result => console.log(result))
-  .catch(err => console.log(err));
+
+
+Amplify.configure('./aws-exports.js');
 
 
 function App() {
+  const [currentUserName, setCurrentUserName] = React.useState("");
+  useEffect(() => {
+    const init = async() => {
+      const currentUser = await Auth.currentAuthenticatedUser();
+      setCurrentUserName(currentUser.username);
+    }
+    init()
+  },[]);
+
+  const signOut = async() => {
+    try {
+      await Auth.signOut();
+    } catch (error) {
+      console.log('error signing out: ', error);
+    }
+    document.location.reload();
+  }
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and sa.
-        </p>
+    //<div className="App">
+      //<header className="App-header">
+        //<img src={logo} className="App-logo" alt="logo" />
+        //<p>
+        //  Edit <code>src/App.js</code> and sa.
+        //</p>
         /*<a
           className="App-link"
           href="https://reactjs.org"
@@ -26,11 +44,15 @@ function App() {
           rel="noopener noreferrer"
         >
         </a>*/
-        
-        <Button variant="contained">ボタンだよ！</Button>
-      </header>
+    //  </header>
+   // </div>
+    <div>
+      <h1>{currentUserName}, hello!!</h1>
+      <Button onClick={signOut}>SignOut!!!</Button>
     </div>
+
   );
 }
 
-export default App;
+//export default App;
+export default withAuthenticator(App);
