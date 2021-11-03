@@ -2,6 +2,7 @@ import logo from './logo.svg';
 import './App.css';
 import Button from '@mui/material/Button';
 import Amplify from 'aws-amplify';
+import Storage from 'aws-amplify';
 
 Amplify.configure('./aws-exports.jp');
 const result = Storage.get('s3_test_text.txt');
