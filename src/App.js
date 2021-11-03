@@ -4,6 +4,7 @@ import Button from '@mui/material/Button';
 import Amplify from 'aws-amplify';
 
 Amplify.configure('./aws-exports.jp');
+const result = Storage.get('s3_test_text.txt');
 
 function App() {
   return (
@@ -20,7 +21,8 @@ function App() {
           rel="noopener noreferrer"
         >
         </a>*/
-        <Button variant="contained">ボタンだよ！</Button>;
+        <a href={result} target="_blank">{fileName}</a>
+        <Button variant="contained">ボタンだよ！</Button>
       </header>
     </div>
   );
