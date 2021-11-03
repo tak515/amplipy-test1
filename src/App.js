@@ -1,6 +1,9 @@
 import logo from './logo.svg';
 import './App.css';
 import Button from '@mui/material/Button';
+import Amplify from 'aws-amplify';
+
+Amplify.configure('./aws-exports.jp');
 
 function App() {
   return (
@@ -10,13 +13,13 @@ function App() {
         <p>
           Edit <code>src/App.js</code> and sa.
         </p>
-        <a
+        /*<a
           className="App-link"
           href="https://reactjs.org"
           target="_blank"
           rel="noopener noreferrer"
         >
-        </a>
+        </a>*/
         <Button variant="contained">ボタンだよ！</Button>;
       </header>
     </div>
