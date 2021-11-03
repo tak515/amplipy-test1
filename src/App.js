@@ -23,7 +23,7 @@ function App() {
           rel="noopener noreferrer"
         >
         </a>*/
-        
+        list: {list1}
         <Button variant="contained">ボタンだよ！</Button>
       </header>
     </div>
