@@ -22,7 +22,7 @@ function App() {
           rel="noopener noreferrer"
         >
         </a>*/
-        <a href={result} target="_blank">{fileName}</a>
+        
         <Button variant="contained">ボタンだよ！</Button>
       </header>
     </div>
