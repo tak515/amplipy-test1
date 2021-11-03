@@ -5,7 +5,7 @@ import Amplify from 'aws-amplify';
 import Storage from 'aws-amplify';
 
 Amplify.configure('./aws-exports.jp');
-const result = await Storage.get('s3_test_text.txt');
+
 
 function App() {
   return (
