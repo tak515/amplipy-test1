@@ -2,10 +2,10 @@ import logo from './logo.svg';
 import './App.css';
 import Button from '@mui/material/Button';
 import Amplify from 'aws-amplify';
-import Storage from 'aws-amplify';
+import {Storage} from 'aws-amplify';
 
 Amplify.configure('./aws-exports.jp');
-const list1 = Storage.list('public/'); // for listing ALL files without prefix, pass '' instead
+const list1 = Storage.list(''); // for listing ALL files without prefix, pass '' instead
 
 
 function App() {
