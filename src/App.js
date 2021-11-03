@@ -5,7 +5,9 @@ import Amplify from 'aws-amplify';
 import Storage from 'aws-amplify';
 
 Amplify.configure('./aws-exports.jp');
-
+Storage.list('public/') // for listing ALL files without prefix, pass '' instead
+    .then(result => console.log(result))
+    .catch(err => console.log(err));
 
 function App() {
   return (
