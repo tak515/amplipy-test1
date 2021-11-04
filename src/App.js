@@ -5,7 +5,7 @@ import Button from '@mui/material/Button';
 import Amplify from 'aws-amplify';
 import {Auth} from 'aws-amplify';
 import { withAuthenticator } from '@aws-amplify/ui-react'; // or 'aws-amplify-react-native';
-
+import {Storage} from 'aws-amplify';
 
 
 Amplify.configure({
@@ -39,6 +39,15 @@ function App() {
     }
     document.location.reload();
   }
+  
+  const storageList = async() => {
+    try {
+      await Storage.list('');
+    } catch (error) {
+      console.log('error storage list: ', error);
+    }
+  }
+  
 
   return (
     //<div className="App">
@@ -58,9 +67,10 @@ function App() {
    // </div>
     <div>
       <h1>{currentUserName}, hello!!</h1>
+      <h1>{storageList}</h1>
       <Button onClick={signOut}>SignOut!!!</Button>
     </div>
-
+    
   );
 }
 
