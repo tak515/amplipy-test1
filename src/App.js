@@ -42,7 +42,8 @@ function App() {
   
   const storageList = async() => {
     try {
-      await Storage.list('');
+      await Storage.list('')
+      .then(result => console.log(result));
     } catch (error) {
       console.log('error storage list: ', error);
     }
