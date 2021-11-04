@@ -8,8 +8,18 @@ import { withAuthenticator } from 'aws-amplify-react'; // or 'aws-amplify-react-
 
 
 
-Amplify.configure('./aws-exports.js');
+Amplify.configure({
+  Auth: {
+    identityPoolID:'ap-northeast-1:d0430b41-c872-4a5d-8731-bc730ea0002a',
+    region: 'ap-northeast-1',
+    userPoolId: 'ap-northeast-1_FZo5CAMFy',
+    userPoolWebClientId:'4860gpqhn5prvn20jop851le1n'
+    
+  }
+};
 
+const configureObject = Auth.configure();
+console.log(configureObject);
 
 function App() {
   const [currentUserName, setCurrentUserName] = React.useState("");
