@@ -20,6 +20,8 @@ Amplify.configure({
 
 const configureObject = Auth.configure();
 console.log(configureObject);
+const stL = Storage.list('public/');
+console.log(stL);
 
 function App() {
   const [currentUserName, setCurrentUserName] = React.useState("");
