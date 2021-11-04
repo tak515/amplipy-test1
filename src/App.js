@@ -16,7 +16,7 @@ Amplify.configure({
     userPoolWebClientId:'4860gpqhn5prvn20jop851le1n'
     
   }
-};
+});
 
 const configureObject = Auth.configure();
 console.log(configureObject);
