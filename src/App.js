@@ -4,7 +4,7 @@ import './App.css';
 import Button from '@mui/material/Button';
 import Amplify from 'aws-amplify';
 import {Auth} from 'aws-amplify';
-import { withAuthenticator } from 'aws-amplify-react'; // or 'aws-amplify-react-native';
+import { withAuthenticator } from '@aws-amplify/ui-react'; // or 'aws-amplify-react-native';
 
 
 
