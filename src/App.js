@@ -20,8 +20,7 @@ Amplify.configure({
 
 const configureObject = Auth.configure();
 console.log(configureObject);
-const stL = Storage.list('public/');
-console.log(stL);
+
 
 function App() {
   const [currentUserName, setCurrentUserName] = React.useState("");
@@ -44,8 +43,8 @@ function App() {
   
   const storageList = async() => {
     try {
-      await Storage.list('public/')
-      .then(result => console.log(result));
+      const credential = await Auth.currentCredentials();
+      console.log(credential);  
     } catch (error) {
       console.log('error storage list: ', error);
     }
@@ -70,7 +69,7 @@ function App() {
    // </div>
     <div>
       <h1>{currentUserName}, hello!!</h1>
-      <h1>{storageList}</h1>
+      <Button onClick={storageList}>credentiak</Button>
       <Button onClick={signOut}>SignOut!!!</Button>
     </div>
     
