@@ -6,8 +6,10 @@ import Amplify from 'aws-amplify';
 import {Auth} from 'aws-amplify';
 import { withAuthenticator } from '@aws-amplify/ui-react'; // or 'aws-amplify-react-native';
 import {Storage} from 'aws-amplify';
+import awsmobile from './aws-exports'
 
-
+Amplify.configure(awsmobile);
+/*
 Amplify.configure({
   Auth: {
     identityPoolID:'ap-northeast-1:d0430b41-c872-4a5d-8731-bc730ea0002a',
@@ -17,6 +19,7 @@ Amplify.configure({
     
   }
 });
+*/
 
 const configureObject = Auth.configure();
 console.log(configureObject);
@@ -43,8 +46,10 @@ function App() {
   
   const storageList = async() => {
     try {
-      const credential = await Auth.currentCredentials();
-      console.log(credential);  
+      const credential = await Auth.currentUserCredentials();
+      console.log(credential);
+      const storageCheck = await Storage.get('s3_test_text2.txt', {download: true, level: 'public'});
+      console.log(storageCheck);  
     } catch (error) {
       console.log('error storage list: ', error);
     }
@@ -69,7 +74,7 @@ function App() {
    // </div>
     <div>
       <h1>{currentUserName}, hello!!</h1>
-      <Button onClick={storageList}>credentiak</Button>
+      <Button onClick={storageList}>credential</Button>
       <Button onClick={signOut}>SignOut!!!</Button>
     </div>
     
