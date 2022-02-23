@@ -74,7 +74,7 @@ function App() {
    // </div>
     <div>
       <h1>{currentUserName}, hello!!</h1>
-      <Button onClick={storageList}>credential</Button>
+      <Button onClick={storageList}>credentials</Button>
       <Button onClick={signOut}>SignOut!!!</Button>
     </div>
     
